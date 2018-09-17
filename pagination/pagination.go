@@ -19,7 +19,7 @@ type Param struct {
 type Pagination struct {
 	TotalRecord int         `json:"total_record"`
 	TotalPage   int         `json:"total_page"`
-	Records     interface{} `json:"records"`
+	Data        interface{} `json:"data"`
 	Offset      int         `json:"offset"`
 	Limit       int         `json:"limit"`
 	Page        int         `json:"page"`
@@ -63,7 +63,7 @@ func Pagging(p *Param, dataSource interface{}) *Pagination {
 	<-done
 
 	pagination.TotalRecord = count
-	pagination.Records = dataSource
+	pagination.Data = dataSource
 	pagination.Page = p.Page
 
 	pagination.Offset = offset
